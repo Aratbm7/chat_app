@@ -123,7 +123,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-ASGI_APPLICATION = "mysite.asgi.application"
+
+# channels
+ASGI_APPLICATION = "core.routing.application"
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
@@ -132,3 +134,6 @@ CHANNEL_LAYERS = {
         },
     },
 }
+
+# custom session model
+SESSION_ENGINE = "core.session_backend"
